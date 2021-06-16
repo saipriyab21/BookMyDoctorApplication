@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,6 +26,7 @@ import com.cg.bookmydoctor.serviceimpl.PatientServiceImpl;
  *         request mapping as "patient"       
  */
 @RestController
+@CrossOrigin(origins="http://localhost:4200")
 @RequestMapping("/patient")
 public class PatientController {
 	
