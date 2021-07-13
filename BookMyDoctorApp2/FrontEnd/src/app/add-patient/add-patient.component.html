@@ -1,0 +1,152 @@
+<div style="background-color:#172b4d">
+    <div class="container-fluid bg-default" id="main_container">
+    <div class="container-fluid pt-4">
+    <nav aria-label="breadcrumb" id="navBar">
+      <ol class="breadcrumb bg-default" >
+        <li class="breadcrumb-item"><a id="breadCrumb" routerLink="/getstarted">Get Started</a></li>
+      <li id="breadCrumb" class="breadcrumb-item active" aria-current="page">SignUp Patient</li>
+      </ol>
+    </nav>
+    </div>
+ 
+    <br>
+    <div class="container-fluid mt--9" id="image_specs">
+      <div class="card text-center ml-auto mr-auto" id="signup_card">
+
+        <div class="card-header ">
+
+      <h1 id="heading" class="mb-0 heading">PATIENT</h1>
+      <h1 id="green" class="mb-0 heading"> SIGNUP</h1>
+        </div>
+
+    <div align="center">
+        <div class="card-body">
+      <div [hidden]="submitted" style="width: 400px;">
+        <form [formGroup]="patientsaveform" #savepatient (ngSubmit)="savePatient()">
+  
+            <div class="form-group">
+                <label for="name">Name</label><span class="required">*</span>
+                <input type="text" class="form-control"  formControlName="patientName" data-toggle="tooltip" pattern="[a-zA-Z ]{1,32}" 
+                   data-placement="right" placeholder="Enter Name" required>
+                <div class="alert alert-danger" *ngIf = "(PatientName.touched) && (PatientName.invalid)" 
+                  style="margin-top: 5px;">
+                    <span *ngIf="PatientName.errors.required">Name is Required</span>
+                      <span *ngIf = "PatientName.errors.minlength"> 
+                          Name must atleast contain 5 letters 
+                      </span>   
+                      <span *ngIf = "PatientName.errors.pattern">Name must contain only alphabets</span>              
+                  </div>
+            </div>
+  
+            <div class="form-group">
+              <label class="form-control-label" for="mobileNo">Mobile</label><span class="required">*</span>
+              <input type="tel" class="form-control" formControlName="mobileNo" minLength="10" pattern="[789][0-9]{9}"
+                data-toggle="tooltip" data-placement="right" placeholder="Enter Mobile Number">
+                <div class="alert alert-danger" *ngIf = "(MobileNo.touched) && (MobileNo.invalid)" 
+                style="margin-top: 5px;">
+                  <span *ngIf="MobileNo.errors.required">Mobile Number is Required</span>
+                  <span *ngIf="MobileNo.errors.minLength">Mobile Number should consist of 10 digits</span>
+                  <span *ngIf = "MobileNo.errors.maxLength">Mobile Number should consist of 10 digits</span>       
+                  <span *ngIf="MobileNo.errors.pattern">Enter a valid Mobile Number</span>           
+                </div>
+          </div>
+    
+          <div class="form-group">
+            <label class="form-control-label" for="email">Email</label><span class="required">*</span>
+            <input type="email" class="form-control" formControlName="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              data-toggle="tooltip" data-placement="right" placeholder ="Enter Email">
+              <div class="alert alert-danger" *ngIf = "(Email.touched) && (Email.invalid)" style="margin-top: 5px;">
+                <span *ngIf="Email.errors.required">Email is Required</span>
+                <span *ngIf="Email.errors.pattern">Invalid Email Format</span>
+              </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="password">Password</label><span class="required">*</span>
+          <input type="password" class="form-control"  formControlName="password" data-toggle="tooltip" 
+             data-placement="right" placeholder="Enter Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required >
+          <div class="alert alert-danger" *ngIf = "(Password.touched) && (Password.invalid)" 
+            style="margin-top: 5px;">
+              <div *ngIf="Password.errors.required">Password is Required</div>
+              <span *ngIf = "Password.errors.minLength">Password should contain minimum 8 characters </span>  
+              <span *ngIf = "Password.errors.maxLength">Password should contain maximum of 20 characters </span>                     
+                <div *ngIf="Password.errors.pattern">Password should have a digit, a special character, a lower case and upper case character. Its minimum length must be 8</div>
+            </div>
+            
+      </div>
+  
+          <div class="form-group">
+              <label for="bloodgroup">Blood Group</label><span class="required">*</span>
+                <select class="form-control" formControlName="bloodGroup" data-toggle="select" 
+                      data-placement="right" placeholder="Select Blood Group">
+                    <option value=""disabled selected hidden>Select Blood Group</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>
+          </div>
+  
+  
+            <div class="form-group">
+              <label for="gender">Gender</label><span class="required">*</span>
+                <select class="form-control" formControlName="gender" data-toggle="select" 
+                      data-placement="right" placeholder="Select Gender">
+                      <option value=""disabled selected hidden>Select Gender</option>
+                      <option value="Female">Female</option>
+                      <option value="Male">Male</option>
+                      <option value="Others">Others</option>
+                </select>
+          </div>
+  
+                  
+
+          <div class="form-group">
+              <label for="age"> Age</label><span class="required">*</span>
+              <input type="number" min="1" max="100" step="1" class="form-control"  formControlName="age" data-toggle="tooltip" 
+                 data-placement="right" placeholder="Enter Age" >
+              <div class="alert alert-danger" *ngIf = "(Age.touched) && (Age.invalid)" 
+                style="margin-top: 5px;">
+                  <span *ngIf="Age.errors.required">Age is required</span>
+                  <span *ngIf="Age.errors.min">Age minimum is 1 year</span>
+                  <span *ngIf="Age.errors.max">Age maximum is 100 years</span>                     
+                </div>
+          </div>
+  
+
+          <div class="form-group">
+            <label for="address"> Address</label><span class="required">*</span>
+            <input type="text" class="form-control"  formControlName="address" data-toggle="tooltip" 
+               data-placement="right" placeholder="Enter Address" >
+            <div class="alert alert-danger" *ngIf = "(Address.touched) && (Address.invalid)" 
+              style="margin-top: 5px;">
+                <span *ngIf="Address.errors.required">Address is Required</span>
+                  <span *ngIf = "Address.errors.minlength"> Addres should atleast contain 4 alphabets 
+                  </span>                   
+              </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-auto mr-auto ml-auto">
+            <button type="submit" id="button" class="btn btn-primary lt-6">
+              Sign Up
+            </button>
+          </div>
+        </div>
+<br>
+        </form>
+        </div>
+        </div>
+    </div>
+
+    </div>
+    </div>
+  </div>
+    <br><br><br><br><br>
+  </div>
+  
+  
