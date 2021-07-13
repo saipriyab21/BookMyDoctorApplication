@@ -1,0 +1,63 @@
+<div style="background-color:#172b4d">
+  <div class="container-fluid bg-default" id="image_specs">
+  <div class="container-fluid pt-4">
+  <nav aria-label="breadcrumb" id="navBar">
+    <ol class="breadcrumb bg-default" >
+      <li class="breadcrumb-item"><a id="breadCrumb" routerLink="/getstarted">Get Started</a></li>
+      <li class="breadcrumb-item"><a id="breadCrumb" routerLink="/doctor-home">Doctor Dashboard</a></li>
+      <li id="breadCrumb" class="breadcrumb-item active" aria-current="page">Add Availability Dates </li> 
+    </ol>
+  </nav>
+  </div>
+  </div>
+<div class="card my-2 mx-auto" id="signup_card">
+  <div class="card-header text-center">
+    <h1 id="heading" class="mb-0 heading">ADD</h1>
+    <h1 id="green" class="mb-0 heading"> AVAILABILITY DATES </h1>
+  
+  <div align="center">
+  <div class="card-body">
+    <div [hidden]="submitted" style="width: 400px;">
+      <form [formGroup]="availabilitysaveform" #saveavailability (ngSubmit)="saveAvailability(saveavailability)">
+
+
+
+        <div class="form-group">
+          <label for="fromDate"> Availability From Date </label><span class="required">*</span>
+            <input type="date" class="form-control" formControlName="fromDate" 
+              data-toggle="tooltip" data-placement="right" placeholder="Enter Availability From Date">
+              <div class="alert alert-danger" *ngIf = "(FromDate.touched) && (FromDate.invalid)" style="margin-top: 5px;">
+                <span *ngIf="FromDate.errors.required">Date is Required</span>
+                </div>
+        </div>
+
+<br>
+<div class="form-group">
+    <label for="endDate"> Availability To Date </label><span class="required">*</span>
+      <input type="date" class="form-control" formControlName="endDate" 
+        data-toggle="tooltip" data-placement="right" placeholder="Enter Availability To Date">
+        <div class="alert alert-danger" *ngIf = "(EndDate.touched) && (EndDate.invalid)" style="margin-top: 5px;">
+          <span *ngIf="EndDate.errors.required">Date is Required</span>
+          </div>
+  </div>
+
+  <div class="row">
+    <div class="col-auto mr-auto ml-auto">
+      <button type="submit" id="button" class="btn btn-primary lt-6">
+        Add
+      </button>
+    </div>
+  </div>
+<br>
+</form>
+</div>
+</div>
+  </div>
+  </div>
+
+</div>
+<br><br><br><br><br>
+</div>
+
+
+
