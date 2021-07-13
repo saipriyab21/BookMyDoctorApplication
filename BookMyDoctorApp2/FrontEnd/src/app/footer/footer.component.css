@@ -1,0 +1,17 @@
+#footer{
+    padding:10px;
+    background-color: #3BD278;
+    color: white;
+    height: 4rem;
+    vertical-align: middle;
+    bottom:0;
+    right:0;
+    left:0;
+    
+}
+
+#about_us{
+    color: white;
+    position: absolute;
+  right: 100px;
+}
