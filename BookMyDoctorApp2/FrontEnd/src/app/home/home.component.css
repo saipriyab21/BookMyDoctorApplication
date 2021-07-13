@@ -1,0 +1,14 @@
+#carousel_style{
+padding: 10px;
+}
+#button {
+    background-color: #3BD278;
+    border: 0;
+    font-size: 120%;
+    padding:15px;
+  }
+ #carouselBackground{
+      height: 425px;
+      background-size: cover;
+  }
+
