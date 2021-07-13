@@ -1,0 +1,187 @@
+<div style="background-color:#172b4d">
+  <div class="container-fluid bg-default" id="image_specs">
+  <div class="container-fluid pt-4">
+  <nav aria-label="breadcrumb" id="navBar">
+    <ol class="breadcrumb bg-default" >
+      <li class="breadcrumb-item"><a id="breadCrumb" routerLink="/getstarted">Get Started</a></li>
+    <li id="breadCrumb" class="breadcrumb-item active" aria-current="page">SignUp Doctor</li>
+    </ol>
+    
+  </nav>
+  </div>
+  </div>
+  <br>
+<div class="card my-2 mx-auto" id="signup_card">
+  <div class="card-header text-center">
+    <h1 id="heading" class="mb-0 heading">DOCTOR</h1>
+    <h1 id="green" class="mb-0 heading"> SIGNUP</h1>
+  </div>
+
+  <div align="center">
+  <div class="card-body">
+    <div [hidden]="submitted" style="width: 400px;">
+      <form class="needs-validation" id="doctor_save_form" [formGroup]="doctorsaveform" #savedoctor (ngSubmit)="saveDoctor()">
+
+        <div class="row">
+          <div class="col">
+          <div class="form-group">
+              <label class="form-control-label" for="Doctor name">Doctor Name</label><span class="required">*</span>
+              <input type="text" class="form-control"  formControlName="doctorName" placeholder="Enter Doctor Name" data-toggle="tooltip" pattern="[A-Za-z ]{1,32}"
+                 data-placement="right" >
+              <div class="alert alert-danger" *ngIf = "(DoctorName.touched) && (DoctorName.invalid)" style="margin-top: 5px;">
+                  <span *ngIf="DoctorName.errors.required">Doctor Name is Required</span>
+                    <span *ngIf = "DoctorName.errors.minlength">Doctor Name should be at least 4 characters </span> 
+                    <span *ngIf = "DoctorName.errors.pattern" >Name must contain only alphabets</span>                
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label class="form-control-label" for="email">Email</label><span class="required">*</span>
+              <input type="email" class="form-control" formControlName="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                data-toggle="tooltip" data-placement="right" placeholder ="Enter Email">
+                <div class="alert alert-danger" *ngIf = "(Email.touched) && (Email.invalid)" style="margin-top: 5px;">
+                  <span *ngIf="Email.errors.required">Email is Required</span>
+                  <span *ngIf="Email.errors.pattern">Invalid Email Format</span>
+                </div>
+          </div> 
+
+          <div class="form-group">
+            <label for="password">Password</label><span class="required">*</span>
+            <input type="password" class="form-control"  formControlName="password" data-toggle="tooltip" 
+               data-placement="right" placeholder="Enter Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required >
+            <div class="alert alert-danger" *ngIf = "(Password.touched) && (Password.invalid)" 
+              style="margin-top: 5px;">
+                <div *ngIf="Password.errors.required">Password is Required</div>
+                <span *ngIf = "Password.errors.minLength">Password should contain minimum 8 characters </span>  
+                <span *ngIf = "Password.errors.maxLength">Password should contain maximum of 20 characters </span>                     
+                  <div *ngIf="Password.errors.pattern">Password should have a digit, a special character, a lower case and upper case character. Its minimum length must be 8</div>
+              </div>          
+        </div>
+
+          <div class="form-group">
+            <label class="form-control-label" for="location">Location</label><span class="required">*</span>
+              <select id="location" data-toggle="select" class="form-control" formControlName="location" 
+              placeholder="Select Location" >
+              <option value=""disabled selected hidden>Select Location</option>
+              <option value="Andhra Pradesh">Andhra Pradesh</option>
+              <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+              <option value="Assam">Assam</option>
+              <option value="Bihar">Bihar</option>
+              <option value="Chandigarh">Chandigarh</option>
+              <option value="Chhattisgarh">Chhattisgarh</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Goa">Goa</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Haryana">Haryana</option>
+              <option value="Himachal Pradesh">Himachal Pradesh</option>
+              <option value="Jammu Kashmir">Jammu Kashmir</option>
+              <option value="Jharkhand">Jharkhand</option>
+              <option value="Karnataka">Karnataka</option>
+              <option value="Kerala">Kerala</option>
+              <option value="Lakshadweep">Lakshadweep</option>
+              <option value="Madhya Pradesh">Madhya Pradesh</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Manipur">Manipur</option>
+              <option value="Meghalaya">Meghalaya</option>
+              <option value="Mizoram">Mizoram</option>
+              <option value="Nagaland">Nagaland</option>
+              <option value="Orissa">Orissa</option>
+              <option value="Pondicherry">Pondicherry</option>
+              <option value="Punjab">Punjab</option>
+              <option value="Rajasthan">Rajasthan</option>
+              <option value="Sikkim">Sikkim</option>
+              <option value="Tamil Nadu">Tamil Nadu</option>
+              <option value="Tripura">Tripura</option>
+              <option value="Uttaranchal">Uttaranchal</option>
+              <option value="Uttar Pradesh">Uttar Pradesh</option>
+              <option value="West Bengal">West Bengal</option>
+              </select>
+              <div class="alert alert-danger" *ngIf = "(Location.touched) && (Location.invalid)" style="margin-top: 5px;">
+                <div *ngIf = "Location.errors.required">Location is Required</div>
+                <div *ngIf = "Location.errors.minLength">Location should contain atleast 4 characters</div>
+              </div>  
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="speciality">Speciality</label><span class="required">*</span>
+            <select class="form-control" formControlName="speciality" data-toggle="select" 
+                  data-placement="right" placeholder="Select speciality">
+              <option value=""disabled selected hidden>Select Speciality</option>
+              <option value="Cardiologist">Cardiologist</option>
+              <option value="Dentist">Dentist</option>
+              <option value = "Dermatologist">Dermatologists</option>
+              <option value = "ENT">ENT</option>
+              <option value="Gynaecologist">Gynaecologist</option>
+              <option value="Neurologist" >Neurologist</option>
+              <option value="Oncologist">Oncologist</option>
+              <option value = "Pediatrician">Pediatrician</option>
+              <option value="Physician">Physician</option>              
+              <option value = "Nephrologist">Nephrologist</option>
+            </select>
+            <div class="alert alert-danger" *ngIf = "(Speciality.touched) && (Speciality.invalid)" style="margin-top: 5px;">
+              <div *ngIf = "Speciality.errors.required">Speciality is Required</div>
+            </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label" for="mobileNo">Mobile</label><span class="required">*</span>
+        <input type="tel" class="form-control" formControlName="mobileNo" minLength="10" pattern="[789][0-9]{9}"
+          data-toggle="tooltip" data-placement="right" placeholder="Enter Mobile Number">
+          <div class="alert alert-danger" *ngIf = "(MobileNo.touched) && (MobileNo.invalid)" 
+          style="margin-top: 5px;">
+            <span *ngIf="MobileNo.errors.required">Mobile Number is Required</span>
+            <span *ngIf="MobileNo.errors.minLength">Mobile Number should consist of 10 digits</span>
+            <span *ngIf = "MobileNo.errors.maxLength">Mobile Number should consist of 10 digits</span>       
+            <span *ngIf="MobileNo.errors.pattern">Enter a valid Mobile Number</span>           
+          </div>
+    </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="hospitalName"> Hospital Name</label><span class="required">*</span>
+          <select class="form-control" formControlName="hospitalName" data-toggle="select" 
+          data-placement="right" placeholder="Select Hospital Name">
+      <option value=""disabled selected hidden>Select Hospital Name</option>
+      <option value="Apollo Hospitals">Apollo Hospitals</option>
+      <option value="SunshineHospitals">Sunshine Hospitals</option>
+      <option value = "Kamineni Hospitals">Kamineni Hospitals</option>
+      <option value = "Government Hospital">Government Hospital</option>
+      <option value="Medicover Hospitals">Medicover Hospitals</option>
+      <option value="Spark Hospitals" >Spark Hospitals</option>
+    </select>
+          <div class="alert alert-danger" *ngIf = "(HospitalName.touched) && (HospitalName.invalid)" style="margin-top: 5px;">
+              <span *ngIf="HospitalName.errors.required">Hospital Name is Required</span>        
+            </div>
+      </div>
+
+
+      <div class="form-group">
+        <label class="form-control-label" for="chargesPerVisit"> Charges Per Visit</label><span class="required">*</span>
+        <input type="number" min="500" max="3000" step="0.01" class="form-control"  formControlName="chargesPerVisit" data-toggle="tooltip" 
+           data-placement="right" placeholder="Enter charges per visit" >
+        <div class="alert alert-danger" *ngIf = "(ChargesPerVisit.touched) && (ChargesPerVisit.invalid)" style="margin-top: 5px;">
+        <div *ngIf="ChargesPerVisit.errors.required">Enter a valid charge</div>
+        <div *ngIf="ChargesPerVisit.errors.min">Minimum charge is 500Rs</div>
+        <div *ngIf = "ChargesPerVisit.errors.max">Maximum charge is 3000Rs</div>
+      </div>
+    </div>
+   
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-auto mr-auto ml-auto">
+    <button type="submit" id="button" class="btn btn-primary lt-6">
+      Sign Up
+    </button>
+  </div>
+</div>
+<br>
+        </form>
+
+        </div>
+        </div>
+  </div>   
+
+    </div>
+    <br><br><br>
+  </div>
