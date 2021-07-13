@@ -1,0 +1,63 @@
+<div style="background-color:#172b4d">
+    <div class="container-fluid bg-default" id="image_specs">
+    <div class="container-fluid pt-4">
+    <nav aria-label="breadcrumb" id="navBar">
+      <ol class="breadcrumb bg-default" >
+        <li class="breadcrumb-item"><a id="breadCrumb" routerLink="/getstarted">Get Started</a></li>
+        <li class="breadcrumb-item"><a id="breadCrumb" routerLink="/admin-home">Admin Dashboard</a></li>
+     <li id="breadCrumb" class="breadcrumb-item active" aria-current="page">Doctor List</li>
+      </ol>
+    </nav>
+    </div>
+    </div>
+    <br>
+  <div class="card my-2 mx-auto" id="signup_card">
+    <div class="card-header text-center">
+      <h1 id="heading" class="mb-0 heading">DOCTOR</h1>
+      <h1 id="green" class="mb-0 heading"> LIST</h1>
+    </div>
+    <div align="center">
+    <div class="card-body">
+   
+    <div class="panel-body"  style="border: 10cm;color: rgb(85, 117, 167);">
+        <table  class="table table-hover table-sm" datatable [dtOptions]="dtOptions"
+        [dtTrigger]="dtTrigger"  >
+            <thead class="thead-light">
+                <tr>
+                  <th>Doctor ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Password</th>
+                  <th>Speciality</th>
+                  <th>Location</th>
+                  <th>Mobile Number</th>
+                  <th>Charges Per Visit</th> 
+                  <th>Hospital Name</th>
+                  
+                </tr>
+            </thead>
+            <tbody>
+                  <tr *ngFor="let d of Doctors">
+                    <td>{{d.doctorId}}</td>
+                    <td>{{d.doctorName}}</td>
+                    <td>{{d.email}}</td>
+                    <td>{{d.password}}</td>
+                    <td>{{d.speciality}}</td>
+                    <td>{{d.location}}</td>
+                    <td>{{d.mobileNo}}</td>
+                    <td>{{d.chargesPerVisit}}</td>
+                    <td>{{d.hospitalName}}</td>
+                  </tr> 
+            </tbody><br>
+        </table>
+    </div>
+  </div> 
+  </div>
+    </div>
+   
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+  
