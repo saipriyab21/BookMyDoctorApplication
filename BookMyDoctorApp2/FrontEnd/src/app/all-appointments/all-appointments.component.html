@@ -1,0 +1,53 @@
+<div style="background-color:#172b4d">
+    <div class="container-fluid bg-default" id="image_specs">
+    <div class="container-fluid pt-4">
+    <nav aria-label="breadcrumb" id="navBar">
+    <ol class="breadcrumb bg-default" >
+    <li class="breadcrumb-item"><a id="breadCrumb" routerLink="/getstarted">Get Started</a></li>
+   
+    <li id="breadCrumb" class="breadcrumb-item active" aria-current="page">View Appointments</li>
+    </ol>
+    </nav>
+    </div>
+    </div>
+    <div class="card my-2 mx-auto" id="signup_card">
+    <div class="card-header text-center">
+    <h1 id="heading" class="mb-0 heading">VIEW</h1>
+    <h1 id="green" class="mb-0 heading"> APPOINTMENTS</h1>
+    </div>
+    <div align="center">
+    <div class="card-body">
+    
+        
+  
+    
+    <div class="panel-body"  style="border: 10cm;color: red;">
+    <table  class="table table-hover table-sm" datatable [dtOptions]="dtOptions"
+    [dtTrigger]="dtTrigger"  >
+    <thead class="thead-light">
+    <tr>
+      <th>Appointment Id</th>
+      <th>Date</th>
+      <th>Status</th>
+      <th>Remark</th>
+    
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let app of Appointments ">
+        <td>{{app.appointmentId}}</td>
+        <td>{{app.appointmentDate}}</td>
+        <td>{{app.appointmentStatus}}</td>
+        <td>{{app.remark}}</td>
+    
+    
+    </tr> 
+    </tbody><br>
+    </table>
+    </div>
+    </div> 
+    </div>
+    
+    </div><br><br><br><br><br><br><br><br><br><br>
+    </div>
+    
