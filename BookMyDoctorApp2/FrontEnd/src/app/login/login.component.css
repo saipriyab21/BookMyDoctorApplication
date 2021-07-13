@@ -1,0 +1,65 @@
+nav {
+  background-color: #3BD278;
+}
+
+#button {
+  background-color: #3BD278;
+  border: 0;
+  font-size: 110%;
+}
+
+#greenText {
+  color: #3BD278
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#login_card {
+
+  min-width: 250px;
+  max-width: 350px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+}
+
+#login_card_div {
+  padding-top: 60px;
+}
+
+.image_specs {
+  padding: 80px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+}
+
+#green {
+  color: #3BD278;
+  display: inline;
+  font-size: 150%;
+  font-weight: bold;
+
+}
+
+#heading{
+display: inline;
+font-size: 150%;
+font-weight: bold;
+}
+
+
+#main_container{
+    margin: 0;
+    padding: 0;
+}
+
+#welcome_logo{
+   width: 10rem;
+}
+
+.welcome_text{
+    margin: 0;
+}
