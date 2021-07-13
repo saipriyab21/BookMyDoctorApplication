@@ -1,0 +1,72 @@
+<div style="background-color:#172b4d">
+    <div class="container-fluid bg-default" id="image_specs">
+    <div class="container-fluid pt-4">
+    <nav aria-label="breadcrumb" id="navBar">
+    <ol class="breadcrumb bg-default" >
+        <li class="breadcrumb-item"><a id="breadCrumb" routerLink="/getstarted">Get Started</a></li>
+    <li class="breadcrumb-item"><a id="breadCrumb" routerLink="/patient-home">Patient Dashboard</a></li>
+    <li id="breadCrumb" class="breadcrumb-item active" aria-current="page">Give Feedback</li>
+    </ol>
+    </nav>
+    </div>
+    </div>
+    <div class="card my-2 mx-auto" id="signup_card">
+    <div class="card-header text-center">
+    <h1 id="heading" class="mb-0 heading">GIVE</h1>
+    <h1 id="green" class="mb-0 heading"> FEEDBACK</h1>
+    </div>
+    <div align="center">
+    <div class="card-body">
+    <div [hidden]="submitted" style="width: 400px;">
+    <form class="needs-validation" id="feedback_form" [formGroup]="feedbacksaveform" #savefeedback (ngSubmit)="saveFeedback()">
+    
+    
+    <div class="form-group">
+    <label for="rating"> Rating</label><span class="required">*</span>
+    <input type="number" min="1" step="1" max ="5" class="form-control"  formControlName="rating" data-toggle="select" 
+    data-placement="right" placeholder="Enter Rating" >
+    
+    <div class="alert alert-danger" *ngIf = "(Rating.touched) && (Rating.invalid)" 
+    style="margin-top: 5px;">
+    <span *ngIf="Rating.errors.required">Rating is required</span>
+    <span *ngIf="Rating.errors.min">Minimum Rating should be 1</span>
+    <span *ngIf="Rating.errors.max">Maximum Rating cannot exceed 5</span>
+    </div>
+    </div><br>
+    <div class="form-group"  style="margin-top:10px;">
+    <label  for="feedbackComment">FeedbackComment </label><span class="required">*</span>  <br>
+    
+    <select id="feedbackComment" name="feedbackComment" class="form-control"  formControlName="feedbackComment" data-toggle="select" 
+    data-placement="right" required="required" placeholder="Select Feedback Comment"> 
+    <option value=""disabled selected hidden>Select Feedback Comment</option>
+    <option value="Poor">Poor</option>
+    <option value="Bad">Bad</option>
+    <option value="Average">Average</option>
+    <option value="Good">Good</option>
+    <option value="Excellent">Excellent</option>
+    
+    </select>
+    <div class="alert alert-danger" *ngIf = "(FeedbackComment.touched) && (FeedbackComment.invalid)" 
+              style="margin-top: 5px;">
+                <div *ngIf="FeedbackComment.errors.required">Feedback Comment is Required</div>
+                </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-auto mr-auto ml-auto">
+        <button type="submit" id="button" class="btn btn-primary lt-6">
+          Add
+        </button>
+      </div>
+    </div>
+<br>
+        </form>
+        </div>
+        </div>
+       
+       
+    </div>
+    </div>
+    <br><br><br><br><br>
+  </div>
+  
